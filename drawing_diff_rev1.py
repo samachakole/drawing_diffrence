@@ -38,12 +38,12 @@ def convert_uploaded_cv2(file):
 image1 = st.file_uploader('Please upload old image',type=['png','jpg','pdf'])
 image2 = st.file_uploader('Please upload new image',type=['png','jpg','pdf'])
 
-
 if image2 is not None and st.button("Get Comparision"):
     if image1 is not None:
         image1 = convert_uploaded_cv2(image1)
     if image2 is not None:
         image2 = convert_uploaded_cv2(image2)
+        
     img1,img2 = image_reader(image1,image2)
     cv2.imshow("Actual1",img1)
     cv2.imshow("Actual2",img2)
