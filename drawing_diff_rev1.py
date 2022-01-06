@@ -5,12 +5,10 @@ from skimage.color import rgb2gray, rgba2rgb
 from skimage.metrics import structural_similarity as sim_comp
 import imutils
 import sys
-import argparse
 from skimage.transform import resize
 import streamlit as st
 import numpy as np
 import numpy as asarray
-from pdf2image import convert_from_path, convert_from_bytes
 
 def image_reader(img1,img2):
     img1 = img1
@@ -40,8 +38,6 @@ def convert_uploaded_cv2(file):
 image1 = st.file_uploader('Please upload old image',type=['png','jpg','pdf'])
 image2 = st.file_uploader('Please upload new image',type=['png','jpg','pdf'])
 
-#image1 = convert_from_path(image1)
-#image2 = convert_from_path(image2)
 
 if image2 is not None and st.button("Get Comparision"):
     if image1 is not None:
