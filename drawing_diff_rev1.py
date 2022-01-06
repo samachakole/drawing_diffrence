@@ -44,7 +44,6 @@ if image2 is not None and st.button("Get Comparision"):
         image1 = convert_uploaded_cv2(image1)
     if image2 is not None:
         image2 = convert_uploaded_cv2(image2)
-        
     img1,img2 = image_reader(image1,image2)
     cv2.imshow("Actual1",img1)
     cv2.imshow("Actual2",img2)
