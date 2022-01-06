@@ -3,9 +3,9 @@ Pillow == 8.0.1
 imutils == 0.5.4
 stellargraph==1.2.1
 scikit-image==0.17.2
-opencv-python-headless==4.5.3.56
+opencv-python-headless==4.5.5.62
 streamlit==0.70.0
 scipy==1.4.1
-numpy==1.19.2
+numpy==1.22.0
 pandas==1.3.0
 
