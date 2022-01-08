@@ -19,13 +19,13 @@ def image_reader(img1,img2):
         img2 = resize(img2, (800, 999, 3))
     img1 = rgb2gray(img1)
     img2 = rgb2gray(img2)
-    rate, diffrences = sim_comp(img1,img2, full=True)
-    diffrences = (diffrences*225).astype("uint8")
-    thresh = cv2.threshold(diffrences,0,255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-    counts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    counts = imutils.grab_contours(counts)
-    for count in counts:
-        (x,y,w,h) = cv2.boundingRect(count)
+    diff_val, diff = sim_comp(img1,img2, full=True)
+    diff = (diff*225).astype("uint8")
+    limit = cv2.threshold(diff,0,255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+    No_of_time = cv2.findContours(limit.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    No_of_time = imutils.grab_contours(No_of_time)
+    for Num in No_of_time:
+        (x,y,w,h) = cv2.boundingRect(Num)
         img1=cv2.rectangle(img1,(x,y),(x+w,y+h),(0,0,255),2)
         img2=cv2.rectangle(img2,(x,y),(x+w,y+h),(0,0,255),2)
     return img1,img2
